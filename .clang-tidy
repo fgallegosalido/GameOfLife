@@ -1,0 +1,9 @@
+---
+Checks: '
+    *,-google-*,-llvm-*,-fuchsia-*,
+    -*-braces-around-statements,
+    -cppcoreguidelines-pro-type-union-access,
+    -*-magic-numbers
+'
+HeaderFilterRegex: '.*'
+...
