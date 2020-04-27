@@ -111,10 +111,10 @@ auto main(int const argc, char const *argv[]) -> int try
                     switch (event.key.code)
                     {
                         case sf::Keyboard::Up:
-                            decreaseSpeed(period);
+                            increaseSpeed(period);
                             break;
                         case sf::Keyboard::Down:
-                            increaseSpeed(period);
+                            decreaseSpeed(period);
                             break;
                         case sf::Keyboard::Right:
                             if (!running)
