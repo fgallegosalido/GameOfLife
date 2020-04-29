@@ -17,12 +17,12 @@ These are the versions the project is compiled with, but lower versions may work
 * GCC 9.3.0
 * CMake 3.17.1
 * Conan 1.24.1
-* SFML 2.3.2
 
-The following are also dependencies, but they shoud be managed by conan:
+The following are the dependencies, but they shoud be managed by conan:
 
 * Boost 1.72.0
 * Catch2 2.12.1
+* SFML 2.5.1
 * spdlog 1.5.0
 
 # Instructions
