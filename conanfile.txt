@@ -1,7 +1,14 @@
 [requires]
 boost/1.72.0
 catch2/2.12.1
+sfml/2.5.1@bincrafters/stable
 spdlog/1.5.0
+
+[options]
+sfml:graphics=True
+sfml:window=True
+sfml:audio=False
+sfml:network=False
 
 [generators]
 cmake

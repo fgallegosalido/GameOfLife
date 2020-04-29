@@ -74,26 +74,24 @@ if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
 endif()
 
 include(${CMAKE_BINARY_DIR}/conan.cmake)
-conan_check(REQUIRED)
+conan_check(VERSION 1.24.1 REQUIRED)
+
+conan_add_remote(
+    NAME bincrafters
+    URL https://api.bintray.com/conan/bincrafters/public-conan
+)
+
 conan_cmake_run(
     CONANFILE conanfile.txt
     BASIC_SETUP
     CMAKE_TARGETS
+    BUILD_TYPE "Release"
     BUILD missing
 )
 
-set(CMAKE_MODULE_PATH "/usr/share/SFML/cmake/Modules/" ${CMAKE_MODULE_PATH})
-find_package(SFML COMPONENTS system window graphics REQUIRED)
+message(STATUS "CONAN_LIBS_BOOST=${CONAN_LIBS_BOOST}")
 
 add_executable(${PROJECT_NAME})
-
-target_link_libraries(${PROJECT_NAME} PRIVATE
-    project_options
-    project_warnings
-    ${SFML_LIBRARIES}
-    boost_program_options
-    CONAN_PKG::spdlog
-)
 
 target_sources(${PROJECT_NAME}
     PUBLIC
@@ -103,6 +101,14 @@ target_sources(${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/src/Grid.cpp
         ${PROJECT_SOURCE_DIR}/src/DrawableGrid.cpp
         ${PROJECT_SOURCE_DIR}/src/GameOfLife.cpp
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    project_options
+    project_warnings
+    CONAN_PKG::sfml
+    CONAN_PKG::spdlog
+    CONAN_PKG::boost
 )
 
 # Testing
