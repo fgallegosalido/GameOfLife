@@ -89,8 +89,6 @@ conan_cmake_run(
     BUILD missing
 )
 
-message(STATUS "CONAN_LIBS_BOOST=${CONAN_LIBS_BOOST}")
-
 add_executable(${PROJECT_NAME})
 
 target_sources(${PROJECT_NAME}
